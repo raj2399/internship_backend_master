@@ -3,8 +3,8 @@ var mysql=require('mysql');
  
 	host:'localhost',
  	user:'root',
- 	password:'bunnydon123',
+ 	password:'',
  	database:'review_system_main'
- 
+
 	});
 	module.exports=connection;

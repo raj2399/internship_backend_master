@@ -15,4 +15,22 @@ router.get('/',function(req,res,next){
     })
 });
 
+router.post('/',function(req,res,next){
+    console.log(req.body);
+    internship.insertInternshipDetails(req.body,function(err,result){
+        if(err)
+            res.json(err);
+        else
+            res.json(result);
+    })
+});
+
+router.put('/',function(req,res,next){
+internship.updateInternshipDetails(req.body,function(err,result){
+    if(err)
+            res.json(err);
+        else
+            res.json(result);
+})
+});
 module.exports=router;
