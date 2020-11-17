@@ -16,9 +16,16 @@ var faculty = require('./routes/faculty_route');
 var location=require('./routes/location_routes');
 var jobProfile = require('./routes/job_profile_routes');
 var companies=require('./routes/company_routes');
+var login=require('./routes/login_route');
 var app = express();
 
 // view engine setup
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  next();
+});
+
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
@@ -32,6 +39,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 app.use('/internship',internship);
+app.use('/login',login);
 app.use('/admin',admin);
 app.use('/course',course);
 app.use('/deleteallcourse',deleteallcourse);
