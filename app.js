@@ -6,7 +6,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-
+var internshipType=require('./routes/internship_type_router');
 var internship=require('./routes/internship_route');
 var admin=require('./routes/admin_route');
 var course=require('./routes/course_route');
@@ -16,6 +16,7 @@ var faculty = require('./routes/faculty_route');
 var location=require('./routes/location_routes');
 var jobProfile = require('./routes/job_profile_routes');
 var companies=require('./routes/company_routes');
+var review=require('./routes/review_route');
 var app = express();
 
 // view engine setup
@@ -31,6 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
+app.use('/internshipType',internshipType);
 app.use('/internship',internship);
 app.use('/admin',admin);
 app.use('/course',course);
@@ -40,6 +42,7 @@ app.use('/faculty',faculty);
 app.use('/location',location);
 app.use('/job_profile',jobProfile);
 app.use('/company',companies);
+app.use('/review',review);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

@@ -5,6 +5,6 @@ var mysql=require('mysql');
  	user:'root',
  	password:'',
  	database:'review_system'
- 
+
 	});
 	module.exports=connection;
