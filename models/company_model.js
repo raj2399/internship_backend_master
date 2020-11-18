@@ -5,11 +5,11 @@ var company={
     },
     insertcompany:function(item,callback)
     {
-        return db.query("insert into companies(company_name1,company_name2,company_url) values(?,?,?)",[item.company_name1,item.company_name2,item.company_url],callback);
+        return db.query("insert into companies(company_name,company_url) values(?,?)",[item.company_name,item.company_url],callback);
     },
     updatecompany:function(company_id,item,callback)
     {
-        return db.query("update companies set company_name1=?,company_name2=?,company_url=? where company_id=?",[item.company_name1,item.company_name2,item.company_url,company_id],callback);
+        return db.query("update companies set company_name=?,company_url=? where company_id=?",[item.company_name,item.company_url,company_id],callback);
     },
     deletecompany:function(company_id,callback)
     {
