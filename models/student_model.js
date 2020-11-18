@@ -1,6 +1,9 @@
 var db = require("../dbconnection");
 
 var student = {
+  getAllStudnet(callback){
+    return db.query("select * from student",callback);
+  },
   Studentlogin(item, callback) {
     return db.query(
       "select * from student where student_email=? and student_password=?",
