@@ -18,6 +18,7 @@ var jobProfile = require('./routes/job_profile_routes');
 var companies=require('./routes/company_routes');
 var login=require('./routes/login_route');
 var review=require('./routes/review_route');
+var admin_login=require('./routes/admin_login_route');
 var app = express();
 
 // view engine setup
@@ -51,6 +52,7 @@ app.use('/location',location);
 app.use('/job_profile',jobProfile);
 app.use('/company',companies);
 app.use('/review',review);
+app.use('/adminLogin',admin_login);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
