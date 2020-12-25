@@ -5,10 +5,11 @@ var course={
     },
     insertcourse:function(item,callback)
     {
-        //console.log(item);
-        return db.query("insert into course (course_id,course_duration,course_name,course_strength) values(?,?,?,?)",[item.course_id,item.course_duration,item.course_name,item.course_strength],callback);
+     
+
+        return db.query("insert into course (course_duration,course_name,course_strength) values(?,?,?)",[item.course_duration,item.course_name,item.course_strength],callback);
     },
-    updatecourse:function(course_id,item,callback)
+        updatecourse:function(course_id,item,callback)
     {
       //  console.log(item);
         return db.query("update course set course_duration=?,course_name=?,course_strength=? where course_id=?",[item.course_duration,item.course_name,item.course_strength,course_id],callback);

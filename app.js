@@ -19,7 +19,7 @@ var companies=require('./routes/company_routes');
 var login=require('./routes/login_route');
 var review=require('./routes/review_route');
 var admin_login=require('./routes/admin_login_route');
-
+var intern_student=require('./routes/internshipByStudent_routes');
 //DASHBOARD
 var companycount=require('./routes/get_all_company_route');
 var internshipcount=require('./routes/get_all_internship_route');
@@ -50,6 +50,7 @@ app.use('/users', usersRouter);
 
 app.use('/internshipType',internshipType);
 app.use('/internship',internship);
+app.use('/internStudent',intern_student);
 app.use('/login',login);
 app.use('/admin',admin);
 app.use('/course',course);
