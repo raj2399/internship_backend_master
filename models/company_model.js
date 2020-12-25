@@ -1,5 +1,5 @@
 var db=require('../dbconnection');
-var company={
+var company={ 
     getAllcompany(callback){
         return db.query("select * from companies",callback);
     },

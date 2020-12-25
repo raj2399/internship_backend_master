@@ -4,6 +4,11 @@ var review={
 getAllReview(callback){
     return db.query("select * from review",callback);
 },
+getStudentReview(callback){
+
+    return db.query("select r.*,i.*,s.* from review r, internship i, student s where r.internship_id=i.internship_id and i.student_id=s.student_id",callback)
+ 
+},
 getReviewByID(review_id,callback)
   {
       return db.query("select * from review where review_id=?",[review_id],callback);

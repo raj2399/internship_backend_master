@@ -12,7 +12,7 @@ router.get("/:review_id?", function (req, res, next) {
       }
     });
   } else {
-    review.getAllReview(function(err,result){
+    review.getStudentReview(function(err,result){
       if(err)
           res.json(err);
       else
