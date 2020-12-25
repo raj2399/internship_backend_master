@@ -39,6 +39,17 @@ router.put("/:review_id", function (req, res, next) {
   });
 });
 
+
+router.put("/report/:review_id", function (req, res, next) {
+  review.updateReportCount(req.params.review_id, req.body, function (err, rows) {
+  if (err) {
+    res.json(err);
+  } else {
+    res.json(rows);
+  }
+});
+});
+
 router.delete("/:review_id", function (req, res, next) {
     review.deleteReview(req.params.review_id, function (err, rows) {
     if (err) {

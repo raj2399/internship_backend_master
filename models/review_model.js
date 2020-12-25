@@ -33,6 +33,9 @@ updateReview(review_id,data,callback){
 },
 deleteReview(review_id,callback){
     return db.query("delete from review where review_id=?",[review_id],callback);
+},
+updateReportCount(review_id,callback){
+    return db.query("update review set report_count=report_count+1 where review_id=?",[review_id],callback);
 }
 
 }
