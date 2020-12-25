@@ -19,6 +19,14 @@ var companies=require('./routes/company_routes');
 var login=require('./routes/login_route');
 var review=require('./routes/review_route');
 var admin_login=require('./routes/admin_login_route');
+var intern_student=require('./routes/internshipByStudent_routes');
+//DASHBOARD
+var companycount=require('./routes/get_all_company_route');
+var internshipcount=require('./routes/get_all_internship_route');
+var reviewcount=require('./routes/get_all_review_route');
+var studentcount=require('./routes/get_all_student_route');
+var latest5interview=require('./routes/get_latest_review_route');
+
 var app = express();
 
 // view engine setup
@@ -42,6 +50,7 @@ app.use('/users', usersRouter);
 
 app.use('/internshipType',internshipType);
 app.use('/internship',internship);
+app.use('/internStudent',intern_student);
 app.use('/login',login);
 app.use('/admin',admin);
 app.use('/course',course);
@@ -53,6 +62,15 @@ app.use('/job_profile',jobProfile);
 app.use('/company',companies);
 app.use('/review',review);
 app.use('/adminLogin',admin_login);
+
+
+// DASHBOARD
+app.use('/companycount',companycount);
+app.use('/internshipcount',internshipcount);
+app.use('/reviewcount',reviewcount);
+app.use('/studentcount',studentcount);
+app.use('/latest5interview',latest5interview);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

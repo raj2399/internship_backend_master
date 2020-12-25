@@ -9,6 +9,10 @@ var internship={
   {
       return db.query("select * from internship where internship_id=?",[internship_id],callback);
   },
+  getInternshipByStudentID(student_id,callback)
+  {
+    return db.query("select i.*,t.*,j.*,l.* from internship i,internship_type t,job_profile j,location l where j.job_profile_id=i.job_profile_id and i.internship_type_id=t.internship_type_id and i.location_id=l.location_id  and  student_id=?",[student_id],callback);
+  },
   insertInternshipDetails(data,callback){
     console.log(data);
     let addondate=new Date();

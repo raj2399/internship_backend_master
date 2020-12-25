@@ -10,7 +10,7 @@ router.get("/:company_id?", function (req, res, next) {
       } else {
         res.json(rows);
       }
-    });
+    }); 
   } else {
     company.getAllcompany(function (err, rows) {
       if (err) {
