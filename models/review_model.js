@@ -41,6 +41,9 @@ deleteReview(review_id,callback){
 },
 updateReportCount(review_id,callback){
     return db.query("update review set report_count=report_count+1 where review_id=?",[review_id],callback);
+},
+getReviewByInternShipId(id,callback){
+    return db.query("select * from review where internship_id=?",[id],callback);
 }
 
 }

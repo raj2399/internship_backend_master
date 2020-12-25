@@ -20,6 +20,14 @@ router.get("/:review_id?", function (req, res, next) {
   }) }
 });
 
+router.get("/ByinternshipId/:id",function(req,res,next){
+  review.getReviewByInternShipId(req.params.id,function(err,result){
+    if(err)
+      res.json(err);
+    else
+    res.json(result);
+  })
+});
 router.post('/',function(req,res,next){
     review.addReview(req.body,function(err,result){
         if(err)
