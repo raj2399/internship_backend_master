@@ -15,4 +15,30 @@ router.get('/',function(req,res,next){
     });
 });
 
+router.get('/barchart',function(req,res,next){
+    dashboard.barchart(function(err,rows){
+        if(err)
+        {
+            res.json(err);
+        }
+        else
+        {
+            res.json(rows);
+        }
+    });
+});
+
+router.get('/linechart',function(req,res,next){
+    dashboard.barchart(function(err,rows){
+        if(err)
+        {
+            res.json(err);
+        }
+        else
+        {
+            res.json(rows);
+        }
+    });
+});
+
 module.exports=router;
