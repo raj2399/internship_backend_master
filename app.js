@@ -26,7 +26,7 @@ var internshipcount=require('./routes/get_all_internship_route');
 var reviewcount=require('./routes/get_all_review_route');
 var studentcount=require('./routes/get_all_student_route');
 var latest5interview=require('./routes/get_latest_review_route');
-
+var pichartData=require('./routes/pichartdata_routes');
 var app = express();
 
 // view engine setup
@@ -50,6 +50,7 @@ app.use('/users', usersRouter);
 
 app.use('/internshipType',internshipType);
 app.use('/internship',internship);
+app.use('/pichart',pichartData);
 app.use('/internStudent',intern_student);
 app.use('/login',login);
 app.use('/admin',admin);
