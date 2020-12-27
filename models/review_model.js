@@ -2,13 +2,15 @@ var db=require('../dbconnection');
 var dateformat=require('dateformat');
 var review={
 getAllReview(callback){
-    return db.query("select * from review",callback);
+    return db.query("select * from review where review_status=1",callback);
 },
 getStudentReview(callback){
-
-    return db.query("select r.*,i.*,s.* from review r, internship i, student s where r.internship_id=i.internship_id and i.student_id=s.student_id",callback)
- 
+    return db.query("select r.*,i.*,s.* from review r, internship i, student s where r.internship_id=i.internship_id and i.student_id=s.student_id and review_status=1",callback);
 },
+getReportedReview(callback){
+    return db.query("select r.*,i.*,s.* from review r, internship i, student s where r.internship_id=i.internship_id and i.student_id=s.student_id and report_count>29",callback);
+}
+,
 getReviewByID(review_id,callback)
   {
       return db.query("select * from review where review_id=?",[review_id],callback);
@@ -41,6 +43,9 @@ deleteReview(review_id,callback){
 },
 updateReportCount(review_id,callback){
     return db.query("update review set report_count=report_count+1 where review_id=?",[review_id],callback);
+},
+updateReportStatus(review_id,admin_id,callback){
+    return db.query("update review set report_count=report_count+1,review_status=0,admin_id=? where review_id=?",[admin_id,review_id],callback);
 },
 getReviewByInternShipId(id,callback){
     return db.query("select * from review where internship_id=?",[id],callback);
